@@ -1,1 +1,4 @@
-@use '../../../node_modules/bootstrap/scss/bootstrap'
+@use './_variable' as *
+@use '../../../node_modules/bootstrap/scss/bootstrap' with (
+  $navbar-light-active-color: $orange
+)
