@@ -1,14 +1,17 @@
 import NavBar from "../components/nav";
 import {Outlet} from 'react-router-dom'
 
-export default function Layout(){
+export default function Layout(props){
 
 
     return(
         <>
-            <NavBar/>
-            <Outlet/>
+            <NavBar {...props}/>
+            <main>
+                <Outlet/>
+            </main>
             
+
         </>
         
     )
