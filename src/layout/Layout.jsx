@@ -7,7 +7,10 @@ export default function Layout(props){
     return(
         <>
             <NavBar {...props}/>
-            <Outlet/>
+            <main>
+                <Outlet/>
+            </main>
+            
 
         </>
         

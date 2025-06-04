@@ -3,7 +3,7 @@ export default function Carousel({car}) {
     
 
     return(
-        <div id="carouselExampleDark" className="carousel carousel-dark slide">
+        <div id="carouselExampleDark" className="carousel carousel-dark slide ">
             <div className="carousel-indicators">
                 {car.map((el,index)=>(
                     <button

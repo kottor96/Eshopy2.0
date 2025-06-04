@@ -6,7 +6,7 @@ export default function NavBar({modif_filter,filter,categorie}) {
     const filterMaj = filter.charAt(0).toUpperCase() + filter.slice(1)    
 
     return(
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <nav className="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
             <div className="container-fluid">
                 <span className="navbar-brand mb-0 h1">
                     Eshopy
