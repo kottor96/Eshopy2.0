@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faStar} from "@fortawesome/free-solid-svg-icons"
+import Notation from "../components/Notation";
 
 export default function ProductDetail({listeProduit}){
     const {id} = useParams()
@@ -24,7 +25,8 @@ export default function ProductDetail({listeProduit}){
                             <p>{produit.description}</p>
                         </div>
                         <div className="footer">
-                            <p>{produit.rating.rate}/5<FontAwesomeIcon icon={faStar} className="text-warning" /> - vote :{produit.rating.count}</p>
+                            <p>{produit.rating.rate}/5<FontAwesomeIcon icon={faStar} className="text-warning" /> - vote : {produit.rating.count}</p>
+                            <Notation/>
                         </div>
                     </div>
                 </div>
