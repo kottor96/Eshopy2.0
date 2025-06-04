@@ -23,7 +23,7 @@ export default function NavBar({modif_filter,filter,categorie}) {
                 <span className="navbar-toggler-icon" />
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav">
+                    <ul className="mx-auto navbar-nav">
                         <li className="nav-item">
                             <NavLink className="nav-link" aria-current="page" to={'/'}>
                                 Home

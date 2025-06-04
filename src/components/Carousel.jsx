@@ -20,10 +20,9 @@ export default function Carousel({car}) {
             <div className="carousel-inner">
                 {car.map((el,index)=>(
                     <div key={el.id} className={`carousel-item ${index===0?'active':''}`} data-bs-interval={10000}>
-                        <img src={el.image} className="d-block w-100" alt={el.title} />
+                        <img src={el.image} className="d-block w-100" alt={el.title} style={{height:""}}/>
                         <div className="carousel-caption d-none d-md-block">
-                            <h5>{el.title}</h5>
-                            <p>{el.description} - <span className="prixCar">{el.price}</span></p>
+                            <h5 className="bg-body-tertiary">{el.title}</h5>
                         </div>
                     </div>
                 ))}

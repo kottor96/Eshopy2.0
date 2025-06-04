@@ -11882,11 +11882,19 @@ main #carousel .carousel-item {
   min-height: 400px;
 }
 main #carousel .carousel-item img {
-  object-fit: cover;
-  max-height: 100%;
+  object-fit: contain;
+  height: 30vh;
 }
 main #speProduc {
   margin-top: 5rem;
+}
+
+#product_detaile {
+  width: 100%;
+}
+#product_detaile img {
+  width: 50%;
+  aspect-ratio: 1/1;
 }
 
 /*# sourceMappingURL=index.css.map */
