@@ -5,7 +5,7 @@ export default function Product({listeProduit}){
     return(
         <section id="product">
             {listeProduit?
-            <div id="listeProduit" className="listeProduit">
+            <div id="listeProduit" className="listeProduit card-group">
                 {listeProduit.map(el=>(
                     <CarteProduct key={el.id} el={el}/>
                 ))}
@@ -20,9 +20,6 @@ export default function Product({listeProduit}){
                         Some quick example text to build on the card title and make up the bulk
                         of the card’s content.
                     </p>
-                    <a href="#" className="btn btn-primary">
-                        Go somewhere
-                    </a>
                     </div>
                 </div>
                 <div className="card" aria-hidden="true">
@@ -38,10 +35,6 @@ export default function Product({listeProduit}){
                         <span className="placeholder col-6" />
                         <span className="placeholder col-8" />
                     </p>
-                    <a
-                        className="btn btn-primary disabled placeholder col-6"
-                        aria-disabled="true"
-                    />
                     </div>
                 </div>
                 </>

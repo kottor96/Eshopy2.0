@@ -11897,4 +11897,20 @@ main #speProduc {
   aspect-ratio: 1/1;
 }
 
+.card {
+  cursor: pointer;
+  box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0);
+  transition: box-shadow 0.5s ease, transform 0.5s ease;
+}
+.card img {
+  object-fit: contain;
+  background-color: #F7F7F7;
+  padding-bottom: 2px;
+}
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 6px 0px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 10px 0px 0px rgba(0, 0, 0, 0.2);
+}
+
 /*# sourceMappingURL=index.css.map */
