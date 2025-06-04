@@ -1,7 +1,8 @@
 import Carousel from "../components/Caouresel";
+import CarteProduct from "../components/CarteProduct";
 
-export default function Home(){
-
+export default function Home({listeProduit}){
+    
 
 
     return(
@@ -10,7 +11,9 @@ export default function Home(){
                 <Carousel/>
             </section>
             <section id="speProduc">
-                
+                {listeProduit.map(el=>{
+                    <CarteProduct key={el.id} el={el} />
+                })}
             </section>
         </>
     )

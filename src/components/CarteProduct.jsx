@@ -1,4 +1,6 @@
-export default function CarteProduct(params) {
+import { Link } from "react-router-dom";
+
+export default function CarteProduct({el}) {
     
     
     
@@ -6,16 +8,19 @@ export default function CarteProduct(params) {
     
     return(
         <div className="card" style={{ width: "18rem" }}>
-            <img src="..." className="card-img-top" alt="..." />
+            <img src={el.image} className="card-img-top" alt={el.title} />
             <div className="card-body">
-                <h5 className="card-title">Card title</h5>
+                <div className="d-flex justify-content-between p-1" >
+                    <h5 className="card-title">{el.title}</h5>
+                    <p>{el.price} €</p>
+                </div>
                 <p className="card-text">
-                    Some quick example text to build on the card title and make up the bulk of
-                    the card’s content.
+                    {el.description}
                 </p>
-                <a href="#" className="btn btn-primary">
-                    Go somewhere
-                </a>
+
+                <Link to={`/Product/${el.id}`} className="btn btn-primary">
+                    Details
+                </Link>
             </div>
         </div>
 

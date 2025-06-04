@@ -11,22 +11,27 @@ import axios from "axios";
 function App() {
 
   const [listeProduit,setListeProduit] = useState([])
+  const [produitLuxe,setProduitLuxe] = useState('')
   
   useParams(()=>{
-    
     axios
       .get("https://fakestoreapi.com/products/")
       .then((resultat)=>setListeProduit(resultat.data))
       .catch((error)=>(console.error(error)))
   },[])
+  useParams(()=>{
+    setProduitLuxe(listeProduit.filter(el=>{
+      el.rating.rate>=4
+    }))
+  },[listeProduit])
 
   return (
     <>
       <Routes>
         <Route path='/' element={<Layout/>}>
-          <Route index element={<Home/>}/>
-          <Route path="Product" element={<Product/>} />
-          <Route path=":Product/:id" element={<ProductDetail/>}/>
+          <Route index element={<Home listeProduit={produitLuxe}/>}/>
+          <Route path="Product" element={<Product listeProduit={listeProduit}/>} />
+          <Route path="Product/:id" element={<ProductDetail listeProduit={listeProduit}/>}/>
         </Route>
       </Routes>
       
