@@ -4,9 +4,7 @@ export default function Product({listeProduit}){
 
     return(
         <section id="product">
-            <div id="recherche">
-
-            </div>
+            
             <div id="listeProduit">
                 {listeProduit.map(el=>(
                     <CarteProduct key={el.id} el={el}/>

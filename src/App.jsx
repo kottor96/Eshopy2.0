@@ -11,18 +11,36 @@ import axios from "axios";
 function App() {
 
   const [listeProduit,setListeProduit] = useState([])
+  const [listeFilter,setListeFilter] = useState([])
   const [produitLuxe,setProduitLuxe] = useState('')
   const [filter,setFilter] = useState('tous')
+  const [categorie,setCategorie] = useState([])
+
+
   useEffect(()=>{
     axios
       .get("https://fakestoreapi.com/products/")
       .then((resultat)=>setListeProduit(resultat.data))
       .catch((error)=>(console.error(error)))
+    
+    axios
+      .get("https://fakestoreapi.com/products/categories")
+      .then((resultat)=>setCategorie(resultat.data))
+      .catch((error)=>console.error(error))
+
   },[])
+
   useEffect(()=>{
     setProduitLuxe(listeProduit.filter(el=>el.rating.rate>=4
     ))
   },[listeProduit])
+
+  useEffect(()=>{
+    setListeFilter(filter === 'tous'
+    ? listeProduit
+    : listeProduit.filter(el => el.category === filter)
+    )
+  },[filter])
 
   function modif_filter(newFiltre) {
     setFilter(newFiltre)
@@ -31,9 +49,9 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<Layout modif_filter={modif_filter} filter={filter}/>}>
+        <Route path='/' element={<Layout modif_filter={modif_filter} categorie={categorie} filter={filter}/>}>
           <Route index element={<Home listeProduit={produitLuxe}/>}/>
-          <Route path="Product" element={<Product listeProduit={listeProduit}/>} />
+          <Route path="Product" element={<Product listeProduit={listeFilter}/>} />
           <Route path="Product/:id" element={<ProductDetail listeProduit={listeProduit}/>}/>
         </Route>
       </Routes>      

@@ -9,8 +9,8 @@ export default function ProductDetail({listeProduit}){
         <>
             <section id="product_detaile">
                 <div className="detail d-flex">
-                    <div className="flex-grow-1"><img src={produit.image} alt={produit.title}/></div>
-                    <div className="flex-grow-2 droite">
+                    <div className="gauche"><img src={produit.image} alt={produit.title}/></div>
+                    <div className=" droite">
                         <div className="head d-flex justify-content-between">
                             <h4>{produit.title}</h4>
                             <p>{produit.price} €</p>

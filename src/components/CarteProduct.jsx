@@ -8,7 +8,7 @@ export default function CarteProduct({el}) {
     
     return(
         <div className="card" style={{ width: "18rem" }}>
-            <img src={el.image} className="card-img-top" alt={el.title} />
+            <img src={el.image} className="card-img-top" alt={el.title} style={{ height: "15rem"}}/>
             <div className="card-body">
                 <div className="justify-content-between" >
                     <h5 className="card-title">{el.title}</h5>

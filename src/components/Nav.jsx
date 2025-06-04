@@ -1,6 +1,6 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 
-export default function NavBar({modif_filter,filter}) {
+export default function NavBar({modif_filter,filter,categorie}) {
     const location = useLocation();
     const ver = location.pathname === "/product" 
     const filterMaj = filter.charAt(0).toUpperCase() + filter.slice(1)    
@@ -47,23 +47,21 @@ export default function NavBar({modif_filter,filter}) {
                                 </a>
                                 <ul className="dropdown-menu">
                                     <li>
-                                        <a className="dropdown-item">
-                                            Action
+                                        <a className={`dropdown-item ${filter==='tous'?'active':""}`} onClick={()=>modif_filter('tous')}>
+                                            Tous
                                         </a>
                                     </li>
-                                    <li>
-                                        <a className="dropdown-item">
-                                            Another action
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a className="dropdown-item">
-                                            Something else here
-                                        </a>
-                                    </li>
+                                    {categorie.map((el,index)=>(
+                                        <li key={index}>
+                                            <a className={`dropdown-item ${filter===el?'active':""}`} onClick={()=>modif_filter(el)}>
+                                                {el}
+                                            </a>
+                                        </li>
+                                    ))}
+                                    
+                                    
                                 </ul>
                                 </li>
-
                             :
                             <></>
                         }
