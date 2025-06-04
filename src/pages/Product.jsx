@@ -8,9 +8,9 @@ export default function Product({listeProduit}){
 
             </div>
             <div id="listeProduit">
-                {listeProduit.map(el=>{
+                {listeProduit.map(el=>(
                     <CarteProduct key={el.id} el={el}/>
-                })}
+                ))}
             </div>
         </section>
     )

@@ -10,19 +10,23 @@ export default function CarteProduct({el}) {
         <div className="card" style={{ width: "18rem" }}>
             <img src={el.image} className="card-img-top" alt={el.title} />
             <div className="card-body">
-                <div className="d-flex justify-content-between p-1" >
+                <div className="justify-content-between" >
                     <h5 className="card-title">{el.title}</h5>
-                    <p>{el.price} €</p>
                 </div>
                 <p className="card-text">
                     {el.description}
                 </p>
 
-                <Link to={`/Product/${el.id}`} className="btn btn-primary">
-                    Details
-                </Link>
+                <div className="card-footer d-flex justify-content-between">
+                    <Link to={`/Product/${el.id}`} className="btn btn-primary text-center align-self-center" >
+                        Details
+                    </Link>
+                    <div>
+                        <p className="m-0">{el.rating.rate}/5 ({el.rating.count})</p>
+                        <p className="m-0">{el.price} €</p>
+                    </div>
+                </div>
             </div>
         </div>
-
     )
 }

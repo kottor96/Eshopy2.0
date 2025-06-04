@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Routes,Route, useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Routes,Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Layout from './layout/Layout'
 import Product from './pages/product'
@@ -12,29 +12,31 @@ function App() {
 
   const [listeProduit,setListeProduit] = useState([])
   const [produitLuxe,setProduitLuxe] = useState('')
-  
-  useParams(()=>{
+  const [filter,setFilter] = useState('tous')
+  useEffect(()=>{
     axios
       .get("https://fakestoreapi.com/products/")
       .then((resultat)=>setListeProduit(resultat.data))
       .catch((error)=>(console.error(error)))
   },[])
-  useParams(()=>{
-    setProduitLuxe(listeProduit.filter(el=>{
-      el.rating.rate>=4
-    }))
+  useEffect(()=>{
+    setProduitLuxe(listeProduit.filter(el=>el.rating.rate>=4
+    ))
   },[listeProduit])
+
+  function modif_filter(newFiltre) {
+    setFilter(newFiltre)
+  }
 
   return (
     <>
       <Routes>
-        <Route path='/' element={<Layout/>}>
+        <Route path='/' element={<Layout modif_filter={modif_filter} filter={filter}/>}>
           <Route index element={<Home listeProduit={produitLuxe}/>}/>
           <Route path="Product" element={<Product listeProduit={listeProduit}/>} />
           <Route path="Product/:id" element={<ProductDetail listeProduit={listeProduit}/>}/>
         </Route>
-      </Routes>
-      
+      </Routes>      
     </>
   )
 }

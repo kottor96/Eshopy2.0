@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
-export default function NavBar(params) {
-    
+export default function NavBar({modif_filter,filter}) {
+    const location = useLocation();
+    const ver = location.pathname === "/product" 
+    const filterMaj = filter.charAt(0).toUpperCase() + filter.slice(1)    
 
     return(
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -23,15 +25,48 @@ export default function NavBar(params) {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" to={'/'}>
+                            <NavLink className="nav-link active" aria-current="page" to={'/'}>
                                 Home
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to={'/product'}>
+                            <NavLink className="nav-link" to={'/product'}>
                                 Produit
-                            </Link>
+                            </NavLink>
                         </li>
+                        {
+                            ver?
+                            <li className="nav-item dropdown">
+                                <a
+                                    className="nav-link dropdown-toggle"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                >
+                                    {filterMaj}
+                                </a>
+                                <ul className="dropdown-menu">
+                                    <li>
+                                        <a className="dropdown-item">
+                                            Action
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a className="dropdown-item">
+                                            Another action
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a className="dropdown-item">
+                                            Something else here
+                                        </a>
+                                    </li>
+                                </ul>
+                                </li>
+
+                            :
+                            <></>
+                        }
                     </ul>
                 </div>
             </div>

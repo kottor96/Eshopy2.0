@@ -11,9 +11,11 @@ export default function Home({listeProduit}){
                 <Carousel/>
             </section>
             <section id="speProduc">
-                {listeProduit.map(el=>{
+                {listeProduit.length>0?(listeProduit.map(el=>(
                     <CarteProduct key={el.id} el={el} />
-                })}
+                )))
+                : <p>chargement en cours</p>
+                }
             </section>
         </>
     )
