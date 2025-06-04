@@ -13,9 +13,6 @@ export default function CarteProduct({el}) {
                 <div className="justify-content-between" >
                     <h5 className="card-title">{el.title}</h5>
                 </div>
-                <p className="card-text">
-                    {el.description}
-                </p>
 
                 <div className="card-footer d-flex justify-content-between">
                     <Link to={`/Product/${el.id}`} className="btn btn-primary text-center align-self-center" >

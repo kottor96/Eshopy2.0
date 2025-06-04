@@ -1,14 +1,14 @@
 import Carousel from "../components/Caouresel";
 import CarteProduct from "../components/CarteProduct";
 
-export default function Home({listeProduit}){
+export default function Home({listeProduit,car}){
     
 
 
     return(
         <>
             <section id="carousel">
-                <Carousel/>
+                <Carousel car={car}/>
             </section>
             <section id="speProduc">
                 {listeProduit.length>0?(listeProduit.map(el=>(

@@ -15,6 +15,7 @@ function App() {
   const [produitLuxe,setProduitLuxe] = useState('')
   const [filter,setFilter] = useState('tous')
   const [categorie,setCategorie] = useState([])
+  const [car, setCar] = useState([]);
 
 
   useEffect(()=>{
@@ -33,6 +34,7 @@ function App() {
   useEffect(()=>{
     setProduitLuxe(listeProduit.filter(el=>el.rating.rate>=4
     ))
+    setCar(listeProduit.slice(0,5))
   },[listeProduit])
 
   useEffect(()=>{
@@ -40,7 +42,7 @@ function App() {
     ? listeProduit
     : listeProduit.filter(el => el.category === filter)
     )
-  },[filter])
+  },[filter,listeProduit])
 
   function modif_filter(newFiltre) {
     setFilter(newFiltre)
@@ -50,7 +52,7 @@ function App() {
     <>
       <Routes>
         <Route path='/' element={<Layout modif_filter={modif_filter} categorie={categorie} filter={filter}/>}>
-          <Route index element={<Home listeProduit={produitLuxe}/>}/>
+          <Route index element={<Home listeProduit={produitLuxe} car={car}/>}/>
           <Route path="Product" element={<Product listeProduit={listeFilter}/>} />
           <Route path="Product/:id" element={<ProductDetail listeProduit={listeProduit}/>}/>
         </Route>
