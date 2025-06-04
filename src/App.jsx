@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Layout from './layout/Layout'
 import Product from './pages/product'
 import ProductDetail from './pages/ProductDetail'
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
 
 function App() {
