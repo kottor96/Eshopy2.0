@@ -11867,8 +11867,10 @@ body {
 
 .listeProduit {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  row-gap: 1rem;
+  justify-content: center;
+  grid-template-columns: repeat(4, 18rem);
+  gap: 1rem;
+  row-gap: 1.5rem;
 }
 
 nav {
